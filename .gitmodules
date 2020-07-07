@@ -1,0 +1,7 @@
+[submodule "libft"]
+	path = libft
+	url = https://github.com/roneyrogerio/libft.git
+
+[submodule "lbmp"]
+	path = lbmp
+	url = https://github.com/roneyrogerio/libbmp24.git
