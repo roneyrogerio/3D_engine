@@ -6,7 +6,7 @@
 /*   By: rde-oliv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/03 17:30:50 by rde-oliv          #+#    #+#             */
-/*   Updated: 2020/07/08 05:44:28 by rde-oliv         ###   ########.fr       */
+/*   Updated: 2020/07/08 07:53:31 by rde-oliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,9 +112,10 @@ int				ngn_int_getline(int fd, char **line);
 void			ngn_player_draw(t_ngn *ngn, void (*frame_draw)(int, int, int));
 void			ngn_map_draw(t_ngn *ngn, void (*frame_draw)(int, int, int));
 int				ngn_int_config_header(int fd, t_ngn *ngn);
-int				ngn_int_config_save_header(char **sl, t_ngn *ngn);
-int				ngn_int_config_save_resolution(char **sl, t_ngn *ngn);
-int				ngn_int_config_save_texture(char **sl, t_ngn *ngn);
+int				ngn_int_config_save_header(char **spline, t_ngn *ngn);
+int				ngn_int_config_save_resolution(char **spline, t_ngn *ngn);
+int				ngn_int_config_save_texture(char **spline, t_ngn *ngn);
+int				ngn_int_config_save_color(char **spline, t_ngn *ngn);
 char			**ngn_int_splittedline(int fd);
 void			ngn_int_resize(t_ngn *ngn);
 void			ngn_set_window_size(t_ngn *ngn, int wd, int ht);
