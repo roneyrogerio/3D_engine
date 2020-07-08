@@ -6,7 +6,7 @@
 /*   By: rde-oliv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/26 02:35:36 by rde-oliv          #+#    #+#             */
-/*   Updated: 2020/07/08 03:58:14 by rde-oliv         ###   ########.fr       */
+/*   Updated: 2020/07/08 08:16:51 by rde-oliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ const char	*ngn_strerror(int code)
 	if (code == NGN_MEMERR)
 		return ("Error\nCannot allocate memory.\n");
 	if (code == NGN_OPENERR)
-		return ("Error\nCannot open the file.\n");
+		return ("Error\nCannot open the config file.\n");
 	if (code == NGN_FILERR)
 		return ("Error\nInvalid config file.\n");
 	if (code == NGN_FDERR)
