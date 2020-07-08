@@ -6,7 +6,7 @@
 /*   By: rde-oliv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/03 17:30:50 by rde-oliv          #+#    #+#             */
-/*   Updated: 2020/07/07 08:40:09 by rde-oliv         ###   ########.fr       */
+/*   Updated: 2020/07/08 05:44:28 by rde-oliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,20 @@ typedef struct	s_player
 	double	turn_speed;
 }				t_player;
 
+typedef struct	s_argb
+{
+	unsigned char	b;
+	unsigned char	g;
+	unsigned char	r;
+	unsigned char	a;
+}				t_argb;
+
+typedef union	u_color
+{
+	t_argb		argb;
+	uint32_t	hex;
+}				t_color;
+
 typedef struct	s_ngn
 {
 	int			wd;
@@ -55,8 +69,10 @@ typedef struct	s_ngn
 	int			**mx;
 	int			mx_wd;
 	int			mx_ht;
-	t_map		map;
 	t_texture	texture;
+	t_color		ceil;
+	t_color		floor;
+	t_map		map;
 	t_player	player;
 }				t_ngn;
 
