@@ -6,7 +6,7 @@
 /*   By: rde-oliv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/26 02:35:36 by rde-oliv          #+#    #+#             */
-/*   Updated: 2020/07/07 10:22:08 by rde-oliv         ###   ########.fr       */
+/*   Updated: 2020/07/08 03:58:14 by rde-oliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,7 @@ const char	*ngn_strerror(int code)
 		return ("Error\nInvalid texture format. You need bmp files.\n");
 	if (code == NGN_TEXNFERR)
 		return ("Error\nCannot open a texture file.\n");
+	if (code == NGN_COLERR)
+		return ("Error\nInvalid color in the config file.\n");
 	return (NULL);
 }

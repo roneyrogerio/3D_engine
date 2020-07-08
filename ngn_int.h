@@ -129,4 +129,5 @@ void			ngn_destroy(t_ngn *ngn);
 # define NGN_TEXERR 6
 # define NGN_TEXFILERR 7
 # define NGN_TEXNFERR 8
+# define NGN_COLERR 9
 #endif
