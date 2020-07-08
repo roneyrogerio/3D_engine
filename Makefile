@@ -6,7 +6,7 @@
 #    By: rde-oliv <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/05/31 21:55:18 by rde-oliv          #+#    #+#              #
-#    Updated: 2020/07/04 04:08:16 by rde-oliv         ###   ########.fr        #
+#    Updated: 2020/07/08 05:41:27 by rde-oliv         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,13 +27,13 @@ ARSCRIPT  = build_merge.ar
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
+$(NAME): $(OBJS) ngn_int.h
 	ar rcs $(NAME) $(OBJS)
 
 _$(NAME): $(SUBLIB) $(NAME) $(ARSCRIPT)
 	ar -M < $(ARSCRIPT)
 
-%.o: %.c
+%.o: %.c ngn_int.h
 	$(CC) $(CFLAGS) -c $< -o $@ $(CMOD) $(CMODBACK)
 
 .FORCE:
