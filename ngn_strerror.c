@@ -6,7 +6,7 @@
 /*   By: rde-oliv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/26 02:35:36 by rde-oliv          #+#    #+#             */
-/*   Updated: 2020/07/08 08:16:51 by rde-oliv         ###   ########.fr       */
+/*   Updated: 2020/07/10 09:36:40 by rde-oliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,7 @@ const char	*ngn_strerror(int code)
 		return ("Error\nCannot open a texture file.\n");
 	if (code == NGN_COLERR)
 		return ("Error\nInvalid color in the config file.\n");
+	if (code == NGN_MAPERR)
+		return ("Error\nInvalid map in the config file.\n");
 	return (NULL);
 }

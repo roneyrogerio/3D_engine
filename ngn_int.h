@@ -6,7 +6,7 @@
 /*   By: rde-oliv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/03 17:30:50 by rde-oliv          #+#    #+#             */
-/*   Updated: 2020/07/08 07:53:31 by rde-oliv         ###   ########.fr       */
+/*   Updated: 2020/07/12 14:40:50 by rde-oliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,4 +130,5 @@ void			ngn_destroy(t_ngn *ngn);
 # define NGN_TEXFILERR 7
 # define NGN_TEXNFERR 8
 # define NGN_COLERR 9
+# define NGN_MAPERR 10
 #endif
