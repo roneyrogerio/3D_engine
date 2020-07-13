@@ -6,7 +6,7 @@
 /*   By: rde-oliv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/03 17:30:50 by rde-oliv          #+#    #+#             */
-/*   Updated: 2020/07/12 14:40:50 by rde-oliv         ###   ########.fr       */
+/*   Updated: 2020/07/13 07:49:22 by rde-oliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,6 +116,8 @@ int				ngn_int_config_save_header(char **spline, t_ngn *ngn);
 int				ngn_int_config_save_resolution(char **spline, t_ngn *ngn);
 int				ngn_int_config_save_texture(char **spline, t_ngn *ngn);
 int				ngn_int_config_save_color(char **spline, t_ngn *ngn);
+int				**ngn_int_matrix_creat(size_t x, size_t y);
+void			ngn_int_matrix_clear(int **matrix);
 char			**ngn_int_splittedline(int fd);
 void			ngn_int_resize(t_ngn *ngn);
 void			ngn_set_window_size(t_ngn *ngn, int wd, int ht);

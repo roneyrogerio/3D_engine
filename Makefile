@@ -6,7 +6,7 @@
 #    By: rde-oliv <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/05/31 21:55:18 by rde-oliv          #+#    #+#              #
-#    Updated: 2020/07/08 05:41:27 by rde-oliv         ###   ########.fr        #
+#    Updated: 2020/07/12 14:41:22 by rde-oliv         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,8 @@ CC   = clang
 SRC  = ngn_init.c ngn_camera.c ngn_mini_map.c ngn_get_window_size.c \
 	  ngn_int_circle.c ngn_set_movement.c ngn_int_getline.c \
 	  ngn_int_config_header.c ngn_int_splittedline.c ngn_strerror.c \
-	  ngn_int_resize.c ngn_set_window_size.c ngn_destroy.c
+	  ngn_int_resize.c ngn_set_window_size.c \
+	  ngn_int_matrix.c ngn_destroy.c
 OBJS     := $(SRC:.c=.o)
 CFLAGS    = -Werror -Wextra -Wall -g
 SUBMOD    = libft lbmp
