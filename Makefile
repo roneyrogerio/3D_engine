@@ -15,7 +15,7 @@ CC   = clang
 SRC  = ngn_init.c ngn_camera.c ngn_mini_map.c ngn_get_window_size.c \
 	  ngn_int_circle.c ngn_set_movement.c ngn_int_getline.c \
 	  ngn_int_config_header.c ngn_int_splittedline.c ngn_strerror.c \
-	  ngn_int_resize.c ngn_set_window_size.c \
+	  ngn_int_resize.c ngn_set_window_size.c ngn_int_config_map.c \
 	  ngn_int_matrix.c ngn_int_mx_validn.c ngn_destroy.c
 OBJS     := $(SRC:.c=.o)
 CFLAGS    = -Werror -Wextra -Wall -g
