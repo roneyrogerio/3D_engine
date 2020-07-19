@@ -6,7 +6,7 @@
 /*   By: rde-oliv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/12 12:38:04 by rde-oliv          #+#    #+#             */
-/*   Updated: 2020/07/12 15:07:11 by rde-oliv         ###   ########.fr       */
+/*   Updated: 2020/07/19 09:40:41 by rde-oliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ void	ngn_int_matrix_clear(int **matrix)
 {
 	size_t	i;
 
+	if (matrix == NULL)
+		return ;
 	i = 0;
 	while(matrix[i] != NULL)
 	{
