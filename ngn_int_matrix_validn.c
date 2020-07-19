@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ngn_int_mx_validn.c                                :+:      :+:    :+:   */
+/*   ngn_int_matrix_validn.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rde-oliv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/18 15:07:00 by rde-oliv          #+#    #+#             */
-/*   Updated: 2020/07/19 08:41:49 by rde-oliv         ###   ########.fr       */
+/*   Updated: 2020/07/19 14:52:10 by rde-oliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ngn_int.h"
 
-int	ngn_int_mx_validn(int **mx, size_t wd, size_t ht)
+int	ngn_int_matrix_validn(int **mx, size_t wd, size_t ht)
 {
 	t_obj	pos;
 
@@ -21,10 +21,10 @@ int	ngn_int_mx_validn(int **mx, size_t wd, size_t ht)
 	while (pos.y >= 0)
 	{
 		if ((mx[pos.y][pos.x] == 0 || mx[pos.y][pos.x] == 2) && (
-				ngn_int_mx_left(mx, pos) == EXIT_FAILURE ||
-				ngn_int_mx_right(mx, wd, pos) == EXIT_FAILURE ||
-				ngn_int_mx_top(mx, pos) == EXIT_FAILURE ||
-				ngn_int_mx_bottom(mx, ht, pos) == EXIT_FAILURE))
+				ngn_int_mx_left_check(mx, pos) == EXIT_FAILURE ||
+				ngn_int_mx_right_check(mx, wd, pos) == EXIT_FAILURE ||
+				ngn_int_mx_top_check(mx, pos) == EXIT_FAILURE ||
+				ngn_int_mx_bottom_check(mx, ht, pos) == EXIT_FAILURE))
 			return (EXIT_FAILURE);
 		pos.x++;
 		if (pos.x == wd && !(pos.x = 0))
@@ -35,7 +35,7 @@ int	ngn_int_mx_validn(int **mx, size_t wd, size_t ht)
 	return (EXIT_SUCCESS);
 }
 
-int	ngn_int_mx_left(int **mx, t_obj pos)
+int	ngn_int_mx_left_check(int **mx, t_obj pos)
 {
 	int	x;
 
@@ -51,7 +51,7 @@ int	ngn_int_mx_left(int **mx, t_obj pos)
 	return (EXIT_SUCCESS);
 }
 
-int	ngn_int_mx_right(int **mx, size_t wd, t_obj pos)
+int	ngn_int_mx_right_check(int **mx, size_t wd, t_obj pos)
 {
 	size_t	x;
 
@@ -67,7 +67,7 @@ int	ngn_int_mx_right(int **mx, size_t wd, t_obj pos)
 	return (EXIT_SUCCESS);
 }
 
-int	ngn_int_mx_top(int **mx, t_obj pos)
+int	ngn_int_mx_top_check(int **mx, t_obj pos)
 {
 	int	y;
 
@@ -83,7 +83,7 @@ int	ngn_int_mx_top(int **mx, t_obj pos)
 	return (EXIT_SUCCESS);
 }
 
-int	ngn_int_mx_bottom(int **mx, size_t ht, t_obj pos)
+int	ngn_int_mx_bottom_check(int **mx, size_t ht, t_obj pos)
 {
 	size_t	y;
 

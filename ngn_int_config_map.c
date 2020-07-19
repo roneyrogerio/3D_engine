@@ -6,7 +6,7 @@
 /*   By: rde-oliv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/10 06:45:51 by rde-oliv          #+#    #+#             */
-/*   Updated: 2020/07/19 08:49:31 by rde-oliv         ###   ########.fr       */
+/*   Updated: 2020/07/19 14:50:46 by rde-oliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int		ngn_int_config_map(int fd, t_ngn *ngn)
 	ft_lstitertw(lst, ngn->mx, &ngn_int_config_lst2matrix);
 	ft_lstclear(&lst, &free);
 	if (g_ngnerr == 0 &&
-			ngn_int_mx_validn(ngn->mx, ngn->mx_wd, ngn->mx_ht) == EXIT_FAILURE)
+		ngn_int_matrix_validn(ngn->mx, ngn->mx_wd, ngn->mx_ht) == EXIT_FAILURE)
 		g_ngnerr = NGN_MAPERR;
 	if (g_ngnerr)
 		return (EXIT_FAILURE);

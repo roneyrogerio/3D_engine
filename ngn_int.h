@@ -6,7 +6,7 @@
 /*   By: rde-oliv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/03 17:30:50 by rde-oliv          #+#    #+#             */
-/*   Updated: 2020/07/19 08:40:58 by rde-oliv         ###   ########.fr       */
+/*   Updated: 2020/07/19 14:49:39 by rde-oliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,11 +126,11 @@ int				ngn_int_config_map(int fd, t_ngn *ngn);
 void			*ngn_int_config_map2lst(int fd, t_ngn *ngn);
 void			ngn_int_config_lst2matrix(void *line, void *mx);
 int				**ngn_int_matrix_creat(size_t x, size_t y);
-int				ngn_int_mx_validn(int **mx, size_t wd, size_t ht);
-int				ngn_int_mx_left(int **mx, t_obj pos);
-int				ngn_int_mx_right(int **mx, size_t wd, t_obj pos);
-int				ngn_int_mx_top(int **mx, t_obj pos);
-int				ngn_int_mx_bottom(int **mx, size_t ht, t_obj pos);
+int				ngn_int_matrix_validn(int **mx, size_t wd, size_t ht);
+int				ngn_int_mx_left_check(int **mx, t_obj pos);
+int				ngn_int_mx_right_check(int **mx, size_t wd, t_obj pos);
+int				ngn_int_mx_top_check(int **mx, t_obj pos);
+int				ngn_int_mx_bottom_check(int **mx, size_t ht, t_obj pos);
 void			ngn_int_matrix_clear(int **matrix);
 char			**ngn_int_splittedline(int fd);
 void			ngn_int_resize(t_ngn *ngn);
