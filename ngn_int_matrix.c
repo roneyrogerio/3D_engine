@@ -38,7 +38,7 @@ void	ngn_int_matrix_clear(int **matrix)
 	if (matrix == NULL)
 		return ;
 	i = 0;
-	while(matrix[i] != NULL)
+	while (matrix[i] != NULL)
 	{
 		free(matrix[i]);
 		i++;
