@@ -6,7 +6,7 @@
 /*   By: rde-oliv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/03 17:30:50 by rde-oliv          #+#    #+#             */
-/*   Updated: 2020/07/13 07:49:22 by rde-oliv         ###   ########.fr       */
+/*   Updated: 2020/07/19 08:40:58 by rde-oliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,12 @@ typedef struct	s_list
 	struct s_list	*next;
 }				t_list;
 
+typedef struct	s_obj
+{
+	size_t	x;
+	size_t	y;
+}				t_obj;
+
 typedef	struct	s_pseudo_fd
 {
 	char	buf[100];
@@ -117,6 +123,11 @@ int				ngn_int_config_save_resolution(char **spline, t_ngn *ngn);
 int				ngn_int_config_save_texture(char **spline, t_ngn *ngn);
 int				ngn_int_config_save_color(char **spline, t_ngn *ngn);
 int				**ngn_int_matrix_creat(size_t x, size_t y);
+int				ngn_int_mx_validn(int **mx, size_t wd, size_t ht);
+int				ngn_int_mx_left(int **mx, t_obj pos);
+int				ngn_int_mx_right(int **mx, size_t wd, t_obj pos);
+int				ngn_int_mx_top(int **mx, t_obj pos);
+int				ngn_int_mx_bottom(int **mx, size_t ht, t_obj pos);
 void			ngn_int_matrix_clear(int **matrix);
 char			**ngn_int_splittedline(int fd);
 void			ngn_int_resize(t_ngn *ngn);
