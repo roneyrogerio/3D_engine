@@ -6,7 +6,7 @@
 /*   By: rde-oliv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/06 21:43:28 by rde-oliv          #+#    #+#             */
-/*   Updated: 2020/06/14 04:44:05 by rde-oliv         ###   ########.fr       */
+/*   Updated: 2020/07/20 11:44:49 by rde-oliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,6 @@ void	ngn_set_walk(t_ngn *ngn, int value)
 void	ngn_set_turn(t_ngn *ngn, int value)
 {
 	ngn->player.turn = value;
-}
-
-void	ngn_set_side(t_ngn *ngn, int value)
-{
-	ngn->player.side = value;
 }
 
 void	ngn_movement_update(t_ngn *ngn)
