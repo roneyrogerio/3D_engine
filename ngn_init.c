@@ -6,7 +6,7 @@
 /*   By: rde-oliv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/06 19:54:13 by rde-oliv          #+#    #+#             */
-/*   Updated: 2020/07/18 09:36:19 by rde-oliv         ###   ########.fr       */
+/*   Updated: 2020/07/20 07:58:57 by rde-oliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ t_ngn		*ngn_init(char *path)
 		ngn_destroy(ngn);
 		return (NULL);
 	}
-	ngn->player.x = 0.4;
-	ngn->player.y = 0.5;
+	ngn->player.x = 10;
+	ngn->player.y = 10;
 	//TODO:..
 	ngn_int_resize(ngn);
 	close(fd);
