@@ -6,7 +6,7 @@
 /*   By: rde-oliv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/27 00:25:00 by rde-oliv          #+#    #+#             */
-/*   Updated: 2020/07/19 09:39:46 by rde-oliv         ###   ########.fr       */
+/*   Updated: 2020/07/20 07:50:26 by rde-oliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,8 +66,8 @@ void	ngn_player_draw(t_ngn *ngn, void (*frame_draw)(int, int, int))
 		return ;
 	map_x = ngn->wd - ngn->mx_wd * ngn->map.sz - ngn->map.mgn_x;
 	map_y = ngn->ht - ngn->mx_ht * ngn->map.sz - ngn->map.mgn_y;
-	circle.x = map_x + round((ngn->map.sz * ngn->mx_wd) * ngn->player.x);
-	circle.y = map_y + round((ngn->map.sz * ngn->mx_ht) * ngn->player.y);
+	circle.x = map_x + round(ngn->map.sz * ngn->player.x);
+	circle.y = map_y + round(ngn->map.sz * ngn->player.y);
 	circle.radius = ceil(ngn->map.sz * ngn->player.radius);
 	circle.color = 0xffff0000;
 	ngn_int_circle(&circle, frame_draw);

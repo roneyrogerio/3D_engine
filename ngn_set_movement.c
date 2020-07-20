@@ -24,16 +24,25 @@ void	ngn_set_turn(t_ngn *ngn, int value)
 
 void	ngn_movement_update(t_ngn *ngn)
 {
-	double	move_step;
-	double	side_step;
-	double	side_angle;
+	t_player	*p;
+	int			**mx;
+	double		old_dir_x;
+	double		old_plane_x;
 
-	ngn->player.angle += ngn->player.turn * ngn->player.turn_speed;
-	move_step = ngn->player.walk * ngn->player.move_speed;
-	side_step = ngn->player.side * ngn->player.move_speed;
-	side_angle = ngn->player.angle - (90 * (M_PI / 180));
-	ngn->player.x += cos(ngn->player.angle) * move_step;
-	ngn->player.y += sin(ngn->player.angle) * move_step;
-	ngn->player.x += cos(side_angle) * side_step;
-	ngn->player.y += sin(side_angle) * side_step;
+	p = &ngn->player;
+	mx = ngn->mx;
+	if (!mx[(int)(p->y)][(int)(p->x - (p->walk * p->dir_x) * p->move_speed)])
+		p->x -= p->walk * (p->dir_x * p->move_speed);
+	if (!mx[(int)(p->y - (p->walk * p->dir_y) * p->move_speed)][(int)(p->x)])
+		p->y -= p->walk * (p->dir_y * p->move_speed);
+	old_dir_x = p->dir_x;
+	p->dir_x = p->dir_x * cos(p->turn * p->turn_speed)
+		- p->dir_y * sin(p->turn * p->turn_speed);
+	p->dir_y = old_dir_x * sin(p->turn * p->turn_speed)
+		+ p->dir_y * cos(p->turn * p->turn_speed);
+	old_plane_x = p->plane_x;
+	p->plane_x = p->plane_x * cos(p->turn * p->turn_speed)
+		- p->plane_y * sin(p->turn * p->turn_speed);
+	p->plane_y = old_plane_x * sin(p->turn * p->turn_speed)
+		+ p->plane_y * cos(p->turn * p->turn_speed);
 }

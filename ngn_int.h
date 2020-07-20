@@ -6,7 +6,7 @@
 /*   By: rde-oliv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/03 17:30:50 by rde-oliv          #+#    #+#             */
-/*   Updated: 2020/07/19 14:49:39 by rde-oliv         ###   ########.fr       */
+/*   Updated: 2020/07/20 11:35:39 by rde-oliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,13 +39,16 @@ typedef struct	s_player
 {
 	double	x;
 	double	y;
-	double	radius;
-	int		turn;
+	double	dir_x;
+	double	dir_y;
+	double	plane_x;
+	double	plane_y;
 	int		walk;
+	int		turn;
 	int		side;
-	double	angle;
 	double	move_speed;
 	double	turn_speed;
+	double	radius;
 }				t_player;
 
 typedef struct	s_argb
