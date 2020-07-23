@@ -18,9 +18,8 @@ int	ngn_int_matrix_validn(int **mx, size_t wd, size_t ht)
 
 	pos.x = 0;
 	pos.y = 0;
-	while (pos.y >= 0)
+	while (pos.y >= 0 && pos.y < ht)
 	{
-		if ((mx[pos.y][pos.x] == 0 || mx[pos.y][pos.x] == 2) && (
 		if ((mx[pos.y][pos.x] == 0 || mx[pos.y][pos.x] == 2 ||
 			mx[pos.y][pos.x] == 78 || mx[pos.y][pos.x] == 83 ||
 			mx[pos.y][pos.x] == 69 || mx[pos.y][pos.x] == 87) && (
@@ -29,11 +28,14 @@ int	ngn_int_matrix_validn(int **mx, size_t wd, size_t ht)
 				ngn_int_mx_top_check(mx, pos) == EXIT_FAILURE ||
 				ngn_int_mx_bottom_check(mx, ht, pos) == EXIT_FAILURE))
 			return (EXIT_FAILURE);
+		else if (mx[pos.y][pos.x] != -1 && mx[pos.y][pos.x] != 0 &&
+			mx[pos.y][pos.x] != 2 && mx[pos.y][pos.x] != 78 &&
+			mx[pos.y][pos.x] != 83 && mx[pos.y][pos.x] != 69 &&
+			mx[pos.y][pos.x] != 87 && mx[pos.y][pos.x] != 1)
+			return (EXIT_FAILURE);
 		pos.x++;
 		if (pos.x == wd && !(pos.x = 0))
 			pos.y++;
-		if (pos.y == ht)
-			break ;
 	}
 	return (EXIT_SUCCESS);
 }
