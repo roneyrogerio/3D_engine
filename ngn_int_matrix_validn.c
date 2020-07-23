@@ -6,7 +6,7 @@
 /*   By: rde-oliv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/18 15:07:00 by rde-oliv          #+#    #+#             */
-/*   Updated: 2020/07/19 14:52:10 by rde-oliv         ###   ########.fr       */
+/*   Updated: 2020/07/23 10:12:21 by rde-oliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,9 @@ int	ngn_int_matrix_validn(int **mx, size_t wd, size_t ht)
 	while (pos.y >= 0)
 	{
 		if ((mx[pos.y][pos.x] == 0 || mx[pos.y][pos.x] == 2) && (
+		if ((mx[pos.y][pos.x] == 0 || mx[pos.y][pos.x] == 2 ||
+			mx[pos.y][pos.x] == 78 || mx[pos.y][pos.x] == 83 ||
+			mx[pos.y][pos.x] == 69 || mx[pos.y][pos.x] == 87) && (
 				ngn_int_mx_left_check(mx, pos) == EXIT_FAILURE ||
 				ngn_int_mx_right_check(mx, wd, pos) == EXIT_FAILURE ||
 				ngn_int_mx_top_check(mx, pos) == EXIT_FAILURE ||
