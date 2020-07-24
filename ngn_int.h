@@ -6,7 +6,7 @@
 /*   By: rde-oliv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/03 17:30:50 by rde-oliv          #+#    #+#             */
-/*   Updated: 2020/07/20 11:35:39 by rde-oliv         ###   ########.fr       */
+/*   Updated: 2020/07/24 10:25:47 by rde-oliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,17 +35,42 @@ typedef struct	s_texture
 	void	*s;
 }				t_texture;
 
-typedef struct	s_player
+typedef struct	s_camera
 {
-	double	x;
-	double	y;
 	double	dir_x;
 	double	dir_y;
 	double	plane_x;
 	double	plane_y;
+	double	camera_x;
+	double	ray_dir_x;
+	double	ray_dir_y;
+	double	side_dist_x;
+	double	side_dist_y;
+	double	delta_dist_x;
+	double	delta_dist_y;
+	double	perp_wall_dist;
+	double	wall_x;
+	double	step;
+	double	tex_pos;
+	int		tex_x;
+	int		line_height;
+	int		draw_start;
+	int		draw_end;
+	int		hit;
+	int		side;
+	void	*tex;
+}				t_camera;
+
+typedef struct	s_player
+{
+	double	x;
+	double	y;
+	int		map_x;
+	int		map_y;
+	int		step_x;
+	int		step_y;
 	int		walk;
 	int		turn;
-	int		side;
 	double	move_speed;
 	double	turn_speed;
 	double	radius;
@@ -70,13 +95,14 @@ typedef struct	s_ngn
 	int			wd;
 	int			ht;
 	int			**mx;
-	int			mx_wd;
-	int			mx_ht;
+	size_t		mx_wd;
+	size_t		mx_ht;
 	t_texture	texture;
 	t_color		ceil;
 	t_color		floor;
 	t_map		map;
 	t_player	player;
+	t_camera	camera;
 }				t_ngn;
 
 typedef struct	s_circle
