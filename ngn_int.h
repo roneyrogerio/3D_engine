@@ -154,6 +154,7 @@ int				ngn_int_config_save_color(char **spline, t_ngn *ngn);
 int				ngn_int_config_map(int fd, t_ngn *ngn);
 void			*ngn_int_config_map2lst(int fd, t_ngn *ngn);
 void			ngn_int_config_lst2matrix(void *line, void *mx);
+int				ngn_int_config_start_pos(t_ngn *ngn);
 int				**ngn_int_matrix_creat(size_t x, size_t y);
 int				ngn_int_matrix_validn(int **mx, size_t wd, size_t ht);
 int				ngn_int_mx_left_check(int **mx, t_obj pos);
@@ -164,6 +165,11 @@ void			ngn_int_matrix_clear(int **matrix);
 char			**ngn_int_splittedline(int fd);
 void			ngn_int_resize(t_ngn *ngn);
 void			ngn_set_window_size(t_ngn *ngn, int wd, int ht);
+void			ngn_int_set_start_angle(t_ngn *ngn, size_t pos);
+void			ngn_int_set_start_north(t_ngn *ngn);
+void			ngn_int_set_start_south(t_ngn *ngn);
+void			ngn_int_set_start_west(t_ngn *ngn);
+void			ngn_int_set_start_east(t_ngn *ngn);
 void			ngn_destroy(t_ngn *ngn);
 
 # define NGN_MEMERR 1
