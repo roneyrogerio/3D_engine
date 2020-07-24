@@ -6,7 +6,7 @@
 /*   By: rde-oliv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/06 21:43:28 by rde-oliv          #+#    #+#             */
-/*   Updated: 2020/07/20 11:44:49 by rde-oliv         ###   ########.fr       */
+/*   Updated: 2020/07/23 20:52:05 by rde-oliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,24 +25,26 @@ void	ngn_set_turn(t_ngn *ngn, int value)
 void	ngn_movement_update(t_ngn *ngn)
 {
 	t_player	*p;
+	t_camera	*cam;
 	int			**mx;
 	double		old_dir_x;
 	double		old_plane_x;
 
 	p = &ngn->player;
+	cam = &ngn->camera;
 	mx = ngn->mx;
-	if (!mx[(int)(p->y)][(int)(p->x - (p->walk * p->dir_x) * p->move_speed)])
-		p->x -= p->walk * (p->dir_x * p->move_speed);
-	if (!mx[(int)(p->y - (p->walk * p->dir_y) * p->move_speed)][(int)(p->x)])
-		p->y -= p->walk * (p->dir_y * p->move_speed);
-	old_dir_x = p->dir_x;
-	p->dir_x = p->dir_x * cos(p->turn * p->turn_speed)
-		- p->dir_y * sin(p->turn * p->turn_speed);
-	p->dir_y = old_dir_x * sin(p->turn * p->turn_speed)
-		+ p->dir_y * cos(p->turn * p->turn_speed);
-	old_plane_x = p->plane_x;
-	p->plane_x = p->plane_x * cos(p->turn * p->turn_speed)
-		- p->plane_y * sin(p->turn * p->turn_speed);
-	p->plane_y = old_plane_x * sin(p->turn * p->turn_speed)
-		+ p->plane_y * cos(p->turn * p->turn_speed);
+	if (!mx[(int)(p->y)][(int)(p->x - (p->walk * cam->dir_x) * p->move_speed)])
+		p->x -= p->walk * (cam->dir_x * p->move_speed);
+	if (!mx[(int)(p->y - (p->walk * cam->dir_y) * p->move_speed)][(int)(p->x)])
+		p->y -= p->walk * (cam->dir_y * p->move_speed);
+	old_dir_x = cam->dir_x;
+	cam->dir_x = cam->dir_x * cos(p->turn * p->turn_speed)
+		- cam->dir_y * sin(p->turn * p->turn_speed);
+	cam->dir_y = old_dir_x * sin(p->turn * p->turn_speed)
+		+ cam->dir_y * cos(p->turn * p->turn_speed);
+	old_plane_x = cam->plane_x;
+	cam->plane_x = cam->plane_x * cos(p->turn * p->turn_speed)
+		- cam->plane_y * sin(p->turn * p->turn_speed);
+	cam->plane_y = old_plane_x * sin(p->turn * p->turn_speed)
+		+ cam->plane_y * cos(p->turn * p->turn_speed);
 }
