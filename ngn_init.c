@@ -6,7 +6,7 @@
 /*   By: rde-oliv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/06 19:54:13 by rde-oliv          #+#    #+#             */
-/*   Updated: 2020/07/20 07:58:57 by rde-oliv         ###   ########.fr       */
+/*   Updated: 2020/07/23 18:46:40 by rde-oliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,16 +30,12 @@ t_ngn		*ngn_init(char *path)
 		return (NULL);
 	}
 	if (ngn_int_config_header(fd, ngn) == EXIT_FAILURE ||
-		ngn_int_config_map(fd,ngn) == EXIT_FAILURE)
+		ngn_int_config_map(fd, ngn) == EXIT_FAILURE)
 	{
 		close(fd);
 		ngn_destroy(ngn);
 		return (NULL);
 	}
-	ngn->player.x = 10;
-	ngn->player.y = 10;
-	//TODO:..
-	ngn_int_resize(ngn);
 	close(fd);
 	return (ngn);
 }

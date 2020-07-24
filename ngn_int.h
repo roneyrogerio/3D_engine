@@ -165,6 +165,8 @@ void			ngn_int_matrix_clear(int **matrix);
 char			**ngn_int_splittedline(int fd);
 void			ngn_int_resize(t_ngn *ngn);
 void			ngn_set_window_size(t_ngn *ngn, int wd, int ht);
+int				ngn_int_if_wall(int pos);
+int				ngn_int_if_player(int pos);
 void			ngn_int_set_start_angle(t_ngn *ngn, size_t pos);
 void			ngn_int_set_start_north(t_ngn *ngn);
 void			ngn_int_set_start_south(t_ngn *ngn);
