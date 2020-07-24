@@ -165,6 +165,8 @@ void			ngn_int_matrix_clear(int **matrix);
 char			**ngn_int_splittedline(int fd);
 void			ngn_int_resize(t_ngn *ngn);
 void			ngn_set_window_size(t_ngn *ngn, int wd, int ht);
+void			ngn_int_draw_fl_ce(t_ngn *ngn, size_t x,
+					void (*draw)(int, int, int));
 int				ngn_int_if_wall(int pos);
 int				ngn_int_if_player(int pos);
 void			ngn_int_set_start_angle(t_ngn *ngn, size_t pos);
@@ -172,6 +174,12 @@ void			ngn_int_set_start_north(t_ngn *ngn);
 void			ngn_int_set_start_south(t_ngn *ngn);
 void			ngn_int_set_start_west(t_ngn *ngn);
 void			ngn_int_set_start_east(t_ngn *ngn);
+void			ngn_int_ray_calc(t_player *ply, t_camera *cam);
+void			ngn_int_dda(t_player *ply, t_camera *cam, int **mx);
+void			ngn_int_line_calc(t_player *ply, t_camera *cam, int ht);
+void			ngn_int_texture(t_ngn *ngn, int x, void (*draw)(int, int, int));
+void			ngn_int_select_texture(t_ngn *ngn);
+void			ngn_int_tex_calc(t_player *ply, t_camera *cam);
 void			ngn_destroy(t_ngn *ngn);
 
 # define NGN_MEMERR 1

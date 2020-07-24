@@ -17,7 +17,8 @@ SRC  = ngn_init.c ngn_camera.c ngn_mini_map.c ngn_get_window_size.c \
 	  ngn_int_config_header.c ngn_int_splittedline.c ngn_strerror.c \
 	  ngn_int_resize.c ngn_set_window_size.c ngn_int_config_map.c \
 	  ngn_int_matrix.c ngn_int_matrix_validn.c ngn_destroy.c \
-	  ngn_int_set_start_angle.c ngn_int_map_pos_check.c \
+	  ngn_int_draw_fl_ce.c ngn_int_set_start_angle.c ngn_int_map_pos_check.c \
+	  ngn_int_texture.c
 OBJS     := $(SRC:.c=.o)
 CFLAGS    = -Werror -Wextra -Wall -g
 SUBMOD    = libft lbmp
