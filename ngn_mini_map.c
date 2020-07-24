@@ -6,7 +6,7 @@
 /*   By: rde-oliv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/27 00:25:00 by rde-oliv          #+#    #+#             */
-/*   Updated: 2020/07/20 07:50:26 by rde-oliv         ###   ########.fr       */
+/*   Updated: 2020/07/23 12:10:57 by rde-oliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 int		rgb_map(int p)
 {
-	if (p > 0)
-		return (0xffFF8900);
-	else if (p == 0)
-		return (0xffFFFFFF);
+	if (p == 1)
+		return (0x3CFF8900);
+	else if (p == 0 || p > 1)
+		return (0x3CFFFFFF);
 	else if (p < 0)
 		return (0x00000000);
 	return (0);
