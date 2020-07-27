@@ -6,7 +6,7 @@
 /*   By: rde-oliv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/10 06:45:51 by rde-oliv          #+#    #+#             */
-/*   Updated: 2020/07/24 10:43:42 by rde-oliv         ###   ########.fr       */
+/*   Updated: 2020/07/27 14:31:00 by rde-oliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ int		ngn_int_config_map(int fd, t_ngn *ngn)
 		g_ngnerr = NGN_MAPERR;
 	if (g_ngnerr)
 		return (EXIT_FAILURE);
+	ngn_int_config_sprites(ngn);
 	ngn_int_resize(ngn);
 	return (EXIT_SUCCESS);
 }
@@ -87,7 +88,7 @@ void	ngn_int_config_lst2matrix(void *line, void *mx)
 
 int		ngn_int_config_start_pos(t_ngn *ngn)
 {
-	t_obj	pos;
+	t_pos	pos;
 	int		found;
 
 	pos.x = 0;
@@ -95,15 +96,15 @@ int		ngn_int_config_start_pos(t_ngn *ngn)
 	found = 0;
 	while (pos.y >= 0 && pos.y < ngn->mx_ht)
 	{
-		if (ngn_int_if_player(ngn->mx[pos.y][pos.x]) && found == 0)
+		if (ngn_int_if_player(ngn->mx[(int)pos.y][(int)pos.x]) && found == 0)
 		{
 			ngn->player.x = pos.x + 0.5;
 			ngn->player.y = pos.y + 0.5;
-			ngn_int_set_start_angle(ngn, ngn->mx[pos.y][pos.x]);
-			ngn->mx[pos.y][pos.x] = 0;
+			ngn_int_set_start_angle(ngn, ngn->mx[(int)pos.y][(int)pos.x]);
+			ngn->mx[(int)pos.y][(int)pos.x] = 0;
 			found = 1;
 		}
-		else if (ngn_int_if_player(ngn->mx[pos.y][pos.x]) && found == 1)
+		if (ngn_int_if_player(ngn->mx[(int)pos.y][(int)pos.x]) && found == 1)
 			return (EXIT_FAILURE);
 		pos.x++;
 		if (pos.x == ngn->mx_wd && !(pos.x = 0))

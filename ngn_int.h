@@ -6,7 +6,7 @@
 /*   By: rde-oliv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/03 17:30:50 by rde-oliv          #+#    #+#             */
-/*   Updated: 2020/07/24 10:25:47 by rde-oliv         ###   ########.fr       */
+/*   Updated: 2020/07/27 14:26:12 by rde-oliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,43 @@ typedef union	u_color
 	uint32_t	hex;
 }				t_color;
 
+typedef struct	s_obj
+{
+	size_t	x;
+	size_t	y;
+}				t_obj;
+
+typedef struct	s_pos
+{
+	double	x;
+	double	y;
+}				t_pos;
+
+typedef struct	s_sprite
+{
+	t_pos		*pos;
+	size_t		num;
+	double		*z_buffer;
+	double		*distance;
+	int			*order;
+	double		x;
+	double		y;
+	double		inv_det;
+	double		transform_x;
+	double		transform_y;
+	int			screen_x;
+	int			v_move_screen;
+	int			wd;
+	int			ht;
+	int			draw_start_x;
+	int			draw_start_y;
+	int			draw_end_x;
+	int			draw_end_y;
+	int			stripe;
+	int			tex_x;
+	int			tex_y;
+}				t_sprite;
+
 typedef struct	s_ngn
 {
 	int			wd;
@@ -103,6 +140,7 @@ typedef struct	s_ngn
 	t_map		map;
 	t_player	player;
 	t_camera	camera;
+	t_sprite	sprite;
 }				t_ngn;
 
 typedef struct	s_circle
@@ -118,12 +156,6 @@ typedef struct	s_list
 	char			*str;
 	struct s_list	*next;
 }				t_list;
-
-typedef struct	s_obj
-{
-	size_t	x;
-	size_t	y;
-}				t_obj;
 
 typedef	struct	s_pseudo_fd
 {
@@ -180,6 +212,16 @@ void			ngn_int_line_calc(t_player *ply, t_camera *cam, int ht);
 void			ngn_int_texture(t_ngn *ngn, int x, void (*draw)(int, int, int));
 void			ngn_int_select_texture(t_ngn *ngn);
 void			ngn_int_tex_calc(t_player *ply, t_camera *cam);
+void			ngn_int_config_sprites(t_ngn *ngn);
+size_t			ngn_int_count_sprites(int **mx, size_t x, size_t y);
+int				ngn_int_sprites_init(t_ngn *ngn);
+void			ngn_int_sprites_draw(t_ngn *ngn, void (*draw)(int, int, int));
+void			ngn_int_sprites_vert(t_ngn *ngn, void (*draw)(int, int, int),
+					int i);
+void			ngn_int_sprites_calc(t_sprite *sp, t_ngn *ngn,
+					t_camera *cam, int i);
+void			ngn_int_sprites_select(t_ngn *ngn);
+void			ngn_int_sprites_sort(t_sprite *sprite);
 void			ngn_destroy(t_ngn *ngn);
 
 # define NGN_MEMERR 1

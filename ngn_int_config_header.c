@@ -6,11 +6,12 @@
 /*   By: rde-oliv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/04 03:26:57 by rde-oliv          #+#    #+#             */
-/*   Updated: 2020/07/08 07:40:43 by rde-oliv         ###   ########.fr       */
+/*   Updated: 2020/07/26 15:09:58 by rde-oliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ngn_int.h"
+#include <stdio.h>
 
 int	ngn_int_config_header(int fd, t_ngn *ngn)
 {
@@ -85,6 +86,7 @@ int	ngn_int_config_save_texture(char **splitted_line, t_ngn *ngn)
 		return (EXIT_FAILURE);
 	}
 	bmp = lbmp_load(splitted_line[1]);
+	printf("%s", lbmp_strerror(g_lbmperr));
 	if (bmp == NULL && (g_ngnerr = NGN_TEXNFERR))
 		return (EXIT_FAILURE);
 	if (ft_strcmp(splitted_line[0], "NO") == 0)

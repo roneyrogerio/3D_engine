@@ -6,7 +6,7 @@
 #    By: rde-oliv <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/05/31 21:55:18 by rde-oliv          #+#    #+#              #
-#    Updated: 2020/07/24 09:58:11 by rde-oliv         ###   ########.fr        #
+#    Updated: 2020/07/27 14:23:52 by rde-oliv         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,8 @@ SRC  = ngn_init.c ngn_camera.c ngn_mini_map.c ngn_get_window_size.c \
 	  ngn_int_resize.c ngn_set_window_size.c ngn_int_config_map.c \
 	  ngn_int_matrix.c ngn_int_matrix_validn.c ngn_destroy.c \
 	  ngn_int_draw_fl_ce.c ngn_int_set_start_angle.c ngn_int_map_pos_check.c \
-	  ngn_int_texture.c
+	  ngn_int_texture.c ngn_int_config_sprites.c ngn_int_sprites_init.c \
+	  ngn_int_sprites_draw.c
 OBJS     := $(SRC:.c=.o)
 CFLAGS    = -Werror -Wextra -Wall -g
 SUBMOD    = libft lbmp
