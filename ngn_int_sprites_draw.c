@@ -6,7 +6,7 @@
 /*   By: rde-oliv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/27 14:19:58 by rde-oliv          #+#    #+#             */
-/*   Updated: 2020/07/27 14:22:29 by rde-oliv         ###   ########.fr       */
+/*   Updated: 2020/07/28 14:11:03 by rde-oliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,10 +106,10 @@ void	ngn_int_sprites_sort(t_sprite *sprite)
 	i = 0;
 	while (i < sprite->num)
 	{
+		if (i == sprite->num - 1)
+			break ;
 		if (sprite->distance[i] < sprite->distance[i + 1])
 		{
-			if (i == sprite->num - 1)
-				break ;
 			distance_tmp = sprite->distance[i];
 			sprite->distance[i] = sprite->distance[i + 1];
 			sprite->distance[i + 1] = distance_tmp;
