@@ -6,7 +6,7 @@
 /*   By: rde-oliv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/27 14:19:58 by rde-oliv          #+#    #+#             */
-/*   Updated: 2020/07/28 14:11:03 by rde-oliv         ###   ########.fr       */
+/*   Updated: 2020/07/28 16:29:08 by rde-oliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void	ngn_int_sprites_calc(t_sprite *sp, t_ngn *ngn, t_camera *cam, int i)
 	sp->transform_y = sp->inv_det
 		* (-cam->plane_y * sp->x + cam->plane_x * sp->y);
 	sp->screen_x = (ngn->wd / 2) * (1 + sp->transform_x / sp->transform_y);
-	sp->v_move_screen = sp->transform_y;
+	sp->v_move_screen = 0.0 / sp->transform_y;
 	sp->ht = fabs(ngn->ht / (sp->transform_y));
 	sp->draw_start_y = -sp->ht / 2 + ngn->ht / 2 + sp->v_move_screen;
 	if (sp->draw_start_y < 0)
