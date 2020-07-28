@@ -6,7 +6,7 @@
 /*   By: rde-oliv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/24 09:38:14 by rde-oliv          #+#    #+#             */
-/*   Updated: 2020/07/26 20:23:34 by rde-oliv         ###   ########.fr       */
+/*   Updated: 2020/07/28 14:10:07 by rde-oliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	ngn_int_texture(t_ngn *ngn, int x, void (*draw)(int, int, int))
 	cam = &ngn->camera;
 	ngn_int_select_texture(ngn);
 	ngn_int_tex_calc(ply, cam);
-	cam->step = 1.0 * lbmp_get_height(cam->tex) / cam->line_height;
+	cam->step = 1.0 * (lbmp_get_height(cam->tex) - 1) / cam->line_height;
 	cam->tex_pos = (cam->draw_start - ngn->ht / 2 + cam->line_height / 2)
 		* cam->step;
 	y = cam->draw_start;
