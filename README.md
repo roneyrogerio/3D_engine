@@ -26,5 +26,5 @@ cd cub3D && make
 |[ngn_movement_update](/ngn_set_movement.c)|Updates the player's position on the map when any movement is set with ***ngn_set_walk*** or ***ngn_set_turn***.|
 |[ngn_set_walk](/ngn_set_movement.c)|Sets the player to move forward or backward.|
 |[ngn_set_turn](/ngn_set_movement.c)|Sets the player to rotate right or left.|
-|[ngn_strerror](/lbmp_strerror.c)|When a function returns an error the error code is placed in the variable **g_ngnerr**, this function gets the error message string.|
+|[ngn_strerror](/ngn_strerror.c)|When a function returns an error the error code is placed in the variable **g_ngnerr**, this function gets the error message string.|
 |[ngn_destroy](/ngn_destroy.c)|Free the allocated memory with ***ngn_init***.|
