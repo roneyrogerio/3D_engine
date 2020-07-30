@@ -6,7 +6,7 @@
 /*   By: rde-oliv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/27 14:19:58 by rde-oliv          #+#    #+#             */
-/*   Updated: 2020/07/28 16:29:08 by rde-oliv         ###   ########.fr       */
+/*   Updated: 2020/07/30 19:01:55 by rde-oliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ void	ngn_int_sprites_vert(t_ngn *ngn, void (*draw)(int, int, int), int y)
 	while (ngn->sprite.stripe < ngn->sprite.draw_end_x)
 	{
 		ngn->sprite.tex_x = (256 * (ngn->sprite.stripe
-					- (-ngn->sprite.wd / 2 + ngn->sprite.screen_x))
-					* lbmp_get_width(ngn->texture.s) / ngn->sprite.wd) / 256;
+		- (-ngn->sprite.wd / 2 + ngn->sprite.screen_x)) * ((int)lbmp_get_width(
+		ngn->texture.s) - 1) / ngn->sprite.wd) / 256;
 		if (ngn->sprite.transform_y > 0 && ngn->sprite.stripe > 0
 				&& ngn->sprite.stripe < ngn->wd && ngn->sprite.transform_y <
 				ngn->sprite.z_buffer[ngn->sprite.stripe])
@@ -43,8 +43,10 @@ void	ngn_int_sprites_vert(t_ngn *ngn, void (*draw)(int, int, int), int y)
 			while (y < ngn->sprite.draw_end_y)
 			{
 				ngn->sprite.tex_y = ((((y - ngn->sprite.v_move_screen) * 256
-					- ngn->ht * 128 + ngn->sprite.ht * 128)
-					* lbmp_get_height(ngn->texture.s)) / ngn->sprite.ht) / 256;
+				- ngn->ht * 128 + ngn->sprite.ht * 128) * ((int)lbmp_get_height(
+				ngn->texture.s) - 1)) / ngn->sprite.ht) / 256;
+				if (ngn->sprite.tex_y < 0)
+					ngn->sprite.tex_y = 0;
 				draw(ngn->wd - ngn->sprite.stripe - 1, y,
 					lbmp_get_pixel_color(ngn->texture.s,
 						ngn->sprite.tex_x, ngn->sprite.tex_y));
