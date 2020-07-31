@@ -6,7 +6,7 @@
 /*   By: rde-oliv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/27 14:19:58 by rde-oliv          #+#    #+#             */
-/*   Updated: 2020/07/30 19:01:55 by rde-oliv         ###   ########.fr       */
+/*   Updated: 2020/07/31 14:41:48 by rde-oliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	ngn_int_sprites_vert(t_ngn *ngn, void (*draw)(int, int, int), int y)
 		ngn->sprite.tex_x = (256 * (ngn->sprite.stripe
 		- (-ngn->sprite.wd / 2 + ngn->sprite.screen_x)) * ((int)lbmp_get_width(
 		ngn->texture.s) - 1) / ngn->sprite.wd) / 256;
-		if (ngn->sprite.transform_y > 0 && ngn->sprite.stripe > 0
+		if (ngn->sprite.transform_y > 0 && ngn->sprite.stripe >= 0
 				&& ngn->sprite.stripe < ngn->wd && ngn->sprite.transform_y <
 				ngn->sprite.z_buffer[ngn->sprite.stripe])
 		{
@@ -67,20 +67,20 @@ void	ngn_int_sprites_calc(t_sprite *sp, t_ngn *ngn, t_camera *cam, int i)
 		* (-cam->plane_y * sp->x + cam->plane_x * sp->y);
 	sp->screen_x = (ngn->wd / 2) * (1 + sp->transform_x / sp->transform_y);
 	sp->v_move_screen = 0.0 / sp->transform_y;
-	sp->ht = fabs(ngn->ht / (sp->transform_y));
+	sp->ht = fabs(ngn->ht / (sp->transform_y)) / 1.5;
 	sp->draw_start_y = -sp->ht / 2 + ngn->ht / 2 + sp->v_move_screen;
 	if (sp->draw_start_y < 0)
 		sp->draw_start_y = 0;
 	sp->draw_end_y = sp->ht / 2 + ngn->ht / 2 + sp->v_move_screen;
 	if (sp->draw_end_y >= ngn->ht)
-		sp->draw_end_y = ngn->ht - 1;
-	sp->wd = fabs(ngn->ht / (sp->transform_y));
+		sp->draw_end_y = ngn->ht;
+	sp->wd = fabs(ngn->ht / (sp->transform_y)) / 1.5;
 	sp->draw_start_x = -sp->wd / 2 + sp->screen_x;
 	if (sp->draw_start_x < 0)
 		sp->draw_start_x = 0;
 	sp->draw_end_x = sp->wd / 2 + sp->screen_x;
 	if (sp->draw_end_x >= ngn->wd)
-		sp->draw_end_x = ngn->wd - 1;
+		sp->draw_end_x = ngn->wd;
 }
 
 void	ngn_int_sprites_select(t_ngn *ngn)

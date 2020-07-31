@@ -6,7 +6,7 @@
 /*   By: rde-oliv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/03 19:56:58 by rde-oliv          #+#    #+#             */
-/*   Updated: 2020/07/27 14:23:25 by rde-oliv         ###   ########.fr       */
+/*   Updated: 2020/07/31 11:18:29 by rde-oliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ void	ngn_camera(t_ngn *ngn, void (*draw)(int, int, int))
 		ngn_int_ray_calc(&ngn->player, &ngn->camera);
 		ngn_int_dda(&ngn->player, &ngn->camera, ngn->mx);
 		ngn_int_line_calc(&ngn->player, &ngn->camera, ngn->ht);
-		ngn_int_texture(ngn, x, draw);
 		ngn_int_draw_fl_ce(ngn, ngn->wd - x - 1, draw);
+		ngn_int_texture(ngn, x, draw);
 		ngn->sprite.z_buffer[x] = ngn->camera.perp_wall_dist;
 		x++;
 	}
