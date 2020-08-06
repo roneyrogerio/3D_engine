@@ -6,7 +6,7 @@
 #    By: rde-oliv <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/05/31 21:55:18 by rde-oliv          #+#    #+#              #
-#    Updated: 2020/07/27 14:23:52 by rde-oliv         ###   ########.fr        #
+#    Updated: 2020/08/06 17:17:05 by rde-oliv         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ SRC  = ngn_init.c ngn_camera.c ngn_mini_map.c ngn_get_window_size.c \
 	  ngn_int_texture.c ngn_int_config_sprites.c ngn_int_sprites_init.c \
 	  ngn_int_sprites_draw.c
 OBJS     := $(SRC:.c=.o)
-CFLAGS    = -Werror -Wextra -Wall -g
+CFLAGS    = -Werror -Wextra -Wall
 SUBMOD    = libft lbmp
 SUBMK    := $(addsuffix /Makefile,$(SUBMOD))
 SUBLIB   := $(foreach D,$(SUBMOD),$D/$D.a)
