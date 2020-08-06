@@ -6,7 +6,7 @@
 /*   By: rde-oliv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/24 09:38:14 by rde-oliv          #+#    #+#             */
-/*   Updated: 2020/07/28 14:10:07 by rde-oliv         ###   ########.fr       */
+/*   Updated: 2020/08/06 14:56:51 by rde-oliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,9 @@ void	ngn_int_select_texture(t_ngn *ngn)
 	else if (ngn->camera.side == 1 && ngn->camera.ray_dir_y < 0)
 		ngn->camera.tex = ngn->texture.no;
 	else if (ngn->camera.side == 0 && ngn->camera.ray_dir_x < 0)
-		ngn->camera.tex = ngn->texture.ea;
-	else
 		ngn->camera.tex = ngn->texture.we;
+	else
+		ngn->camera.tex = ngn->texture.ea;
 }
 
 void	ngn_int_tex_calc(t_player *ply, t_camera *cam)
